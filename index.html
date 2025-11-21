@@ -11,7 +11,24 @@
       <script>
       document.getElementById('myButton').addEventListener('click', () => {
       const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+      const backend = 'https://test12345678a-cuaxapejethrdwd7.canadacentral-01.azurewebsites.net/api/HttpTrigger2';
 
+fetch(backend)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // or response.text() for plain text
+  })
+  .then(data => {
+    alert(JSON.stringify(data));
+    // Process the data here
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
+      });
+/*
 fetch(apiUrl)
   .then(response => {
     if (!response.ok) {
@@ -27,6 +44,7 @@ fetch(apiUrl)
     console.error('Error fetching data:', error);
   });
       });
+*/
       </script>
 </body>
 </html>
