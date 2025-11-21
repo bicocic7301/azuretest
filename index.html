@@ -10,7 +10,22 @@
       <button id="myButton">Click me</button>
       <script>
       document.getElementById('myButton').addEventListener('click', () => {
-      alert('Button clicked!');
+      const apiUrl = 'https://jsonplaceholder.typicode.com/users';
+
+fetch(apiUrl)
+  .then(response => {
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    return response.json(); // or response.text() for plain text
+  })
+  .then(data => {
+    alert('Received data:', data);
+    // Process the data here
+  })
+  .catch(error => {
+    console.error('Error fetching data:', error);
+  });
       });
       </script>
 </body>
