@@ -18,7 +18,7 @@ fetch(backend)
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
-    return response.json(); // or response.text() for plain text
+    return response.text(); // or response.text() for plain text
   })
   .then(data => {
     alert(data);
