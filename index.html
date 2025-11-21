@@ -20,7 +20,7 @@ fetch(apiUrl)
     return response.json(); // or response.text() for plain text
   })
   .then(data => {
-    alert('Received data:', data);
+    alert('Received data:', JSON.stringify(data));
     // Process the data here
   })
   .catch(error => {
